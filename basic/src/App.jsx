@@ -7,19 +7,22 @@ import Home from './Home'
 function App() {
 
 const[state,setState]=useState(0)
+const[colors,setColor]=useState(' ')
 
-  const name=(e,e1)=>{
-    console.log('function')
-    setState(e,e1);
-    
-  }
+
+  const increment=()=>setState(state+1);
+  const decrement=()=>  setState(state-1);
+  const reset=()=>setState(0);
+  // const color=()=>setColor('purple')
+  const input =(e)=>setColor(e)
   
 
   return (
-    <>
-    <h1>app {state}</h1>
-     <Home data={'data'} fun={name} state={state}/>
-    </>
+    <div className='div'>
+    
+     <Home  input={input} colors={colors}  reset={reset} increment={increment} decrement={decrement} state={state} />
+    
+    </div>
   )
 }
 
